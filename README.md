@@ -41,10 +41,11 @@ The error term, which is the squared sum of the difference between the actual ra
 The product of the regularization parameter (lambda) and the "lengths" of P and Q, which just represents the amount of data that is available in the two matrices.
 The final algorithm was put into effect as follows:
 
-First, the P and Q matrices were initialized: a) Q = m x k matrix of movies and factors, with all elements initialized to a random value in the range [0, (5/k)^1/2] b) P = n x k matrix of users and factors, with all elements initialized to a random value in the range [0, (5/k)^1/2]
-Then, stochastic gradient descent is performed, in an interative manner (until convergence) to determine the new values of P & Q:
-Both P and Q at time t change by a small amount, equal to the product of the learning rate and the derivative of the corresponding matrix. These new values of P and Q are used in the next iteration
-The gradient of P can be calculated as the negative difference between the actual rating and the predicted rating, multiplied by Q at a time t, added to the product of the lambda and P at time t
-The gradient of Q can be calculated as the negative difference between the actual rating and the predicted rating, multiplied by P at a time t, added to the product of the lambda and Q at time t
-Step 2 happens iteratively, and, for each execution, the value of the error function is stored. At the end of the requested number of iterations, this function is plotted against the number of iterations. The value of the error function appears to deecrease, as the number of iterations increase, until it reaches a minimum. After this, the error begins to increase again, signaling to possible overfitting. The number of iterations for which this error is minimum, is the point of convergence.
+1. First, the P and Q matrices were initialized: a) Q = m x k matrix of movies and factors, with all elements initialized to a random value in the range [0, (5/k)^1/2] b) P = n x k matrix of users and factors, with all elements initialized to a random value in the range [0, (5/k)^1/2]
+2. Then, stochastic gradient descent is performed, in an interative manner (until convergence) to determine the new values of P & Q:
+	- Both P and Q at time t change by a small amount, equal to the product of the learning rate and the derivative of the corresponding matrix. These new values of P and Q 	   are used in the next iteration
+	- The gradient of P can be calculated as the negative difference between the actual rating and the predicted rating, multiplied by Q at a time t, added to the product 		  of the lambda and P at time t
+	- The gradient of Q can be calculated as the negative difference between the actual rating and the predicted rating, multiplied by P at a time t, added to the product 		  of the lambda and Q at time t
+3. Step 2 happens iteratively, and, for each execution, the value of the error function is stored. At the end of the requested number of iterations, this function is plotted against the number of iterations. The value of the error function appears to deecrease, as the number of iterations increase, until it reaches a minimum. After this, the error begins to increase again, signaling to possible overfitting. The number of iterations for which this error is minimum, is the point of convergence.
+
 The resulting model made high-accuracy movie predictions, with an RMSE of less than 0.9.
