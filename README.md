@@ -1,6 +1,11 @@
 # Recommender-Systems
 Implementation of Collaborative Filtering and Latent Matric Factorization techniques in recommending movies
 
+
+The aim is to build a movie recommendation system by taking user ratings for nearly 100,000 movies
+and make recommendations for movies that a user has not watched, based on the user's rating of other 
+movies, and how similar users rate the movie being recommended.
+
 ## Collaborative Filtering
 
 ## Latent Factor Models
